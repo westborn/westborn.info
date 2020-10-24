@@ -4,13 +4,15 @@ html {
 }
 
 body {
+  overflow: auto;
   min-height: 100%;
   display: grid;
-  grid-template-columns: minmax(4vw,1fr) minmax(15rem,35rem) minmax(4vw,1fr);
+  grid-template-columns: minmax(4vw, 1fr) minmax(15rem, 35rem) minmax(4vw, 1fr);
   grid-template-rows: auto 1fr auto;
 }
 
-header, footer {
+header,
+footer {
   grid-column: 1/4;
 }
 

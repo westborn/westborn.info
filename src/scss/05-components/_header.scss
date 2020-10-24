@@ -50,17 +50,4 @@ header {
       }
     }
   }
-
-  figure {
-    width: 100%;
-    @include reset;
-    border-top: 3px solid var(--color-back4);
-    border-bottom: 3px solid var(--color-back4);
-    overflow: hidden;
-
-    img {
-      height: 35vh;
-      object-fit: cover;
-    }
-  }
 }

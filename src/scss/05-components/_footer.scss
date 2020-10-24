@@ -1,12 +1,11 @@
 // page footer
 footer {
-
   background-color: var(--color-back2);
   border-top: 3px solid var(--color-back4);
 
   .github {
     text-align: center;
-    margin-block: 1em;
+    // margin-block: 1em;
 
     a {
       color: var(--color-back4);
@@ -15,7 +14,6 @@ footer {
         display: none;
       }
     }
-
   }
 
   nav {
@@ -26,7 +24,6 @@ footer {
     }
 
     & > ul {
-
       display: flex;
       justify-content: center;
       gap: 1.5rem;
@@ -34,13 +31,10 @@ footer {
       ul a:link {
         font-weight: var(--font-weight);
       }
-
     }
 
     strong {
       color: var(--color-back4);
     }
-
   }
-
 }

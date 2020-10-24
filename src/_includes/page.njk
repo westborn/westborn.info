@@ -10,8 +10,6 @@
     {% navlist collections.all | eleventyNavigation, page, 1 %}
   </nav>
 
-  <figure><img src="/images/{% if hero %}{{ hero }}{% else %}orb.jpg{% endif %}" width="400" height="300" alt="decoration" /></figure>
-
 </header>
 
 <main>
@@ -28,11 +26,15 @@
 
 <footer>
 
-  <p class="github"><a href="https://github.com/westborn"><img src="/images/github.svg" width="50" height="50" alt="11ty starter" inline>github.com/westborn</a></p>
+  <p class="github">
+    <a href="https://github.com/westborn">
+      <img src="/images/github.svg" width="30" height="30" alt="11ty starter" inline>github.com/westborn
+    </a>
+  </p>
 
-  {# <nav>
+  <nav>
     {% navlist collections.all | eleventyNavigation, page, 2 %}
-  </nav> #}
+  </nav>
 
 </footer>
 

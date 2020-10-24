@@ -1,15 +1,22 @@
 // box sizing
-*, *:before, *:after {
+*,
+*:before,
+*:after {
   box-sizing: border-box;
   line-height: var(--line-height);
   text-rendering: optimizeLegibility;
+  margin: 0;
+  padding: 0;
 }
 
 body {
-  overflow-y: scroll;
+  overflow-y: hidden;
 }
 
-body, h1, h2, h3 {
+body,
+h1,
+h2,
+h3 {
   font-weight: var(--font-weight);
 }
 
