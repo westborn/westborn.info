@@ -1,0 +1,13 @@
+---
+layout: base
+permalink: /articles/
+cover: /og/archive.png
+eleventyNavigation:
+  key: Archive
+  order: 2
+---
+
+<h1 class="text-3xl font-bold mb-10">Archive</h1>
+
+{% set articleslist = collections.articles %}
+{% include "articleslist.njk" %}

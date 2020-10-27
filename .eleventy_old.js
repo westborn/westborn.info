@@ -23,8 +23,6 @@ module.exports = (eleventyConfig) => {
   eleventyConfig.addPassthroughCopy('src/og');
   eleventyConfig.addPassthroughCopy('src/images');
   eleventyConfig.addPassthroughCopy('src/fonts');
-  /* --- COPY FAVICON TO ROOT --- */
-  eleventyConfig.addPassthroughCopy({ 'src/images/favicons': '/' });
 
   eleventyConfig.addLayoutAlias('base', 'layouts/base.njk');
   eleventyConfig.addLayoutAlias('article', 'layouts/article.njk');
@@ -34,12 +32,12 @@ module.exports = (eleventyConfig) => {
   });
 
   // format dates
-  const dateformat = require('./lib/filters/dateformat');
+  const dateformat = require('./src/lib/filters/dateformat');
   eleventyConfig.addFilter('datefriendly', dateformat.friendly);
   eleventyConfig.addFilter('dateymd', dateformat.ymd);
 
   // format word count and reading time
-  eleventyConfig.addFilter('readtime', require('./lib/filters/readtime'));
+  eleventyConfig.addFilter('readtime', require('./src/lib/filters/readtime'));
 
   //format URLs
   eleventyConfig.addFilter('absoluteURL', (url, base) => {
@@ -54,13 +52,9 @@ module.exports = (eleventyConfig) => {
     return array.slice(0, n);
   });
 
-  /* --- SHORTCODES --- */
-
   eleventyConfig.addShortcode('simpleicon', (name) => {
     return simpleIcons.get(name).svg;
   });
-
-  /* --- CUSTOM COLLECTIONS --- */
 
   eleventyConfig.addCollection('tagList', (collection) => {
     let tagSet = new Set();
@@ -244,7 +238,7 @@ module.exports = (eleventyConfig) => {
   });
 
   return {
-    templateFormats: ['md', 'njk', 'html'],
+    templateFormats: ['md', 'njk', 'html', 'liquid'],
     markdownTemplateEngine: 'njk',
     htmlTemplateEngine: 'njk',
     dataTemplateEngine: 'njk',

@@ -1,0 +1,23 @@
+---
+title: About
+layout: base
+cover: /og/about.png
+eleventyNavigation:
+  key: About
+  order: 1
+---
+
+<h1 class="text-3xl font-bold mb-5">About</h1>
+
+<p>Hullo!</p>
+
+<h2 class="text-xl my-5">Technologies</h2>
+
+<div class="flex flex-wrap">
+{% for tech in technologies %}
+  <a class="inline-flex flex-col mr-4 mb-4 p-5 rounded-lg border-2 hover:border-gray-700" href="{{ tech.link }}">
+    <span class="w-12 self-center">{% simpleicon tech.name %}</span>
+    <span class="mt-2 w-auto text-center">{{ tech.name }}</span>
+  </a>
+{% endfor %}
+</div>

@@ -1,0 +1,12 @@
+---
+permalink: /tags/
+layout: base
+cover: /og/tags.png
+---
+
+<h1 class="text-3xl font-bold mb-10">Tags</h1>
+
+{% for tag in collections.tagList %}
+  {% set tagUrl %}/tags/{{ tag }}/{% endset %}
+  <a href="{{ tagUrl | url }}">{{ tag }}</a>
+{% endfor %}

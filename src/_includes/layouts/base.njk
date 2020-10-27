@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    {% set title = title or 'Westborn' %}
+    {% set description = description or 'Technology company with a focus on web dev' %}
+    {% set cover = cover or '/og/index.png' %}
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ title }}</title>
+    <meta name="title" content="{{ title }}">
+    <meta name="description" content="{{ description }}">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="{{ page.url | url | absoluteURL('https://westborn.info/') }}">
+    <meta property="og:title" content="{{ title }}">
+    <meta property="og:description" content="{{ description }}">
+    <meta property="og:image" content="{{ cover | url | absoluteURL('https://westborn.info/') }}">
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="{{ page.url | url | absoluteURL('https://westborn.info/') }}">
+    <meta property="twitter:title" content="{{ title }}">
+    <meta property="twitter:description" content="{{ description }}">
+    <meta property="twitter:image" content="{{ cover | url | absoluteURL('https://westborn.info/') }}">
+    {% set css %}{% include "css/styles.css" %}{% endset %}
+    <style>{{ css | safe }}</style>
+    {% if includePrism %}
+    {% set prism %}{% include "css/prism.css" %}{% endset %}
+    {% set firaCode %}{% include "css/firacode.css" %}{% endset %}
+    <style>{{ prism | cssmin | safe }} {{ firaCode | cssmin | safe }}</style>
+    {% endif %}
+  </head>
+  <body>
+    <header class="flex flex-col items-center justify-between mx-5 my-3 lg:flex-row">
+      <a class="inline-block w-auto text-5xl font-bold" href="{{ '/' | url }}">Westborn</a></h1>
+      <ul class="flex">
+      {% for entry in collections.all | eleventyNavigation %}
+      {% if entry.url !== "/" %}
+        <li>
+          <a class="block p-3 ml-2 border-t-2
+          {% if page.url === entry.url %}border-gray-200{% else %}border-transparent
+           hover:border-gray-600{% endif %}"
+            href="{{ entry.url | url }}">{{ entry.title }}</a>
+        </li>
+      {% endif %}
+      {% endfor %}
+      </ul>
+    </header>
+
+    <main class="mx-6 mt-12 md:mx-8 lg:mx-20 xl:mx-64">
+      {{ content | safe }}
+    </main>
+
+    <footer class="flex flex-col px-6 py-12 mt-24 space-y-5 border-t-2 border-gray-300 border-solid md:px-8 lg:px-20 xl:px-64">
+      <p class="text-center">&copy; Westborn Pty Ltd 2020</p>
+      <div class="flex m-auto space-x-4">
+        <a href="https://twitter.com/westborn" class="block w-6 text-gray-500 fill-current hover:text-black">{% simpleicon "twitter" %}</a>
+        <a href="https://github.com/westborn" class="block w-6 text-gray-500 fill-current hover:text-black">{% simpleicon "github" %}</a>
+        <a href="https://dev.to/westborn" class="block w-6 text-gray-500 fill-current hover:text-black">{% simpleicon "dev.to" %}</a>
+      </div>
+    </footer>
+  </body>
+</html>

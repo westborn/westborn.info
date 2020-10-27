@@ -1,6 +1,15 @@
 build/
-
+_site/
 node_modules
+
+# various OSes
+.DS_Store
+**/.DS_Store
+Thumbs.db
+desktop.ini
+
+# Tailwind CSS build
+src/_includes/css/styles.css
 
 .npm
 package-lock.json
@@ -9,5 +18,16 @@ npm-debug.log*
 logs
 *.log
 
-.DS_Store
-Thumbs.db
+
+# Sharp-generated images
+src/images/90
+src/images/80
+src/images/70
+src/images/60
+src/images/50
+src/images/40
+src/images/30
+src/images/20
+src/images/10
+
+src/images/webp
